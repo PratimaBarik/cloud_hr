@@ -1,0 +1,42 @@
+package com.app.employeePortal.productionWorkflow.service;
+
+import java.util.List;
+
+import com.app.employeePortal.opportunityWorkflow.mapper.OpportunityStagesMapper;
+import com.app.employeePortal.opportunityWorkflow.mapper.OpportunityWorkflowMapper;
+import com.app.employeePortal.productionWorkflow.mapper.ProductionStagesRequestMapper;
+import com.app.employeePortal.productionWorkflow.mapper.ProductionStagesResponseMapper;
+import com.app.employeePortal.productionWorkflow.mapper.ProductionWorkflowRequestMapper;
+import com.app.employeePortal.productionWorkflow.mapper.ProductionWorkflowResponseMapper;
+
+public interface ProductionWorkflowService {
+
+	ProductionWorkflowResponseMapper saveProductionWorkflow(ProductionWorkflowRequestMapper requestMapper);
+
+	List<ProductionWorkflowResponseMapper> getProductionWorkflowListByOrgId(String orgId);
+
+	ProductionWorkflowResponseMapper updateOpportunityWorkflowDetails(String productionWorkflowDetailsId,
+			ProductionWorkflowRequestMapper requestMapper);
+
+	void deleteProductionWorkflowDetails(String productionWorkflowDetailsId);
+
+	boolean stageExistsByWeightage(double probability, String productionWorkflowDetailsId);
+
+	ProductionStagesResponseMapper saveProductionStages(ProductionStagesRequestMapper requestMapper);
+
+	List<ProductionStagesResponseMapper> getStagesByProductionWorkflowDetailsId(String productionWorkflowDetailsId);
+
+	ProductionStagesResponseMapper updateProductionStagesId(String productionStagesId,
+			ProductionStagesRequestMapper requestMapper);
+
+	void deleteProductionStagesById(String productionStagesId);
+
+	ProductionStagesResponseMapper updateProductionStagesPubliahInd(ProductionStagesRequestMapper requestMapper);
+
+	ProductionWorkflowResponseMapper updateProductionWorkflowDetailsPublishInd(
+			ProductionStagesRequestMapper requestMapper);
+
+	List<ProductionWorkflowResponseMapper> getProductionWorkflowListByOrgIdForDropdown(String orgId);
+
+	List<ProductionStagesResponseMapper> getProductionStagesByOrgIdForDropdown(String orgId);
+}
